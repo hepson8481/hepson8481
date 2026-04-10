@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Pre Flight Check DJI T50</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#0f172a;
+  margin:0;
+  padding:20px;
+}
+
+/* CARD */
+.container{
+  max-width:520px;
+  margin:30px auto;
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  border-top:5px solid #3b82f6;
+}
+
+h2{
+  text-align:center;
+  color:#1e3a8a;
+}
+
+label{
+  display:block;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+input,select{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  border-radius:8px;
+  border:1px solid #ccc;
+}
+
+/* CHECKLIST */
+.check-group{
+  margin-top:10px;
+  padding:10px;
+  background:#f1f5f9;
+  border-radius:10px;
+}
+
+.check-group span{
+  font-weight:bold;
+}
+
+/* BUTTON ROW (INI YANG FIX) */
+.check-options{
+  display:flex;
+  gap:6px;
+  margin-top:6px;
+}
+
+.check-options input{
+  display:none;
+}
+
+.check-options label{
+  padding:4px 10px;
+  font-size:12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  cursor:pointer;
+  background:#fff;
+}
+
+/* OK */
+.check-options input.ok:checked + label.ok{
+  background:#22c55e;
+  color:#fff;
+  border-color:#22c55e;
+}
+
+/* NOT OK */
+.check-options input.notok:checked + label.notok{
+  background:#ef4444;
+  color:#fff;
+  border-color:#ef4444;
+}
+
+button{
+  width:100%;
+  margin-top:20px;
+  padding:12px;
+  background:#2563eb;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+button:hover{
+  background:#1d4ed8;
+}
+
+#result{
+  margin-top:15px;
+  text-align:center;
+  color:green;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Pre Flight Check DJI T50</h2>
+
+<form id="flightForm">
+
+<label>Tanggal</label>
+<input type="date" required>
+
+<label>Nama Operator</label>
+<select required>
+<option>Aziz</option>
+<option>Banu</option>
+<option>Sahrul</option>
+<option>Afridus</option>
+<option>Rikson</option>
+<option>Aqmal</option>
+<option>Kifli</option>
+</select>
+
+<label>Unit Code</label>
+<select required>
+<option>DJIT50-01</option>
+<option>DJIT50-02</option>
+<option>DJIT50-03</option>
+<option>DJIT50-04</option>
+<option>DJIT50-05</option>
+<option>DJIT50-06</option>
+<option>DJIT100-01</option>
+</select>
+
+<label>Paddock</label>
+<input type="text" required>
+
+<label>Kegiatan</label>
+<input type="text" required>
+
+<!-- CHECKLIST -->
+<div class="check-group">
+<span>Propeller Check</span>
+<div class="check-options">
+<input type="radio" name="prop" id="p1" class="ok">
+<label for="p1" class="ok">OK</label>
+
+<input type="radio" name="prop" id="p2" class="notok">
+<label for="p2" class="notok">Not OK</label>
+</div>
+</div>
+
+<div class="check-group">
+<span>Battery Check</span>
+<div class="check-options">
+<input type="radio" name="bat" id="b1" class="ok">
+<label for="b1" class="ok">OK</label>
+
+<input type="radio" name="bat" id="b2" class="notok">
+<label for="b2" class="notok">Not OK</label>
+</div>
+</div>
+
+<button type="submit">Submit</button>
+</form>
+
+<div id="result"></div>
+</div>
+
+<script>
+document.getElementById("flightForm").addEventListener("submit",function(e){
+e.preventDefault();
+document.getElementById("result").innerText="Data berhasil disimpan!";
+});
+</script>
+
+</body>
+</html>
